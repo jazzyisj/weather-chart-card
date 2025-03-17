@@ -246,9 +246,13 @@ class WeatherChartCard extends LitElement {
                 var time = new Date(datetime).toLocaleTimeString(language,
                   { hour12: false, hour: 'numeric', minute: 'numeric' });
                 if (mode == 'hourly') {
+                  var time = new Date(value).toLocaleTimeString(locale,
+                  { hour: 'numeric', minute: 'numeric' });                  
                   return time;
                 }
-                return weekday;
+                var data = new Date(value).toLocaleDateString(locale,
+                  { weekday: 'short' });
+                return data;
               }
             }
           },
